@@ -1,0 +1,135 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+
+<component name = "PlayerControlGroup" extends = "Group" >
+
+  <script type="text/brightscript" >
+
+    <![CDATA[
+
+    sub init()
+      print "in Panel init"
+      m.top.opacity = .75
+      m.top.translation = "[0,420]"
+      title = m.top.findNode("Title")
+      currentVideo = m.global.currentVideo
+      title.text = currentVideo.content.title
+      seasontitle = m.top.findNode("SeasonTitle")
+      seasontitle.text = currentVideo.content.TitleSeason
+      channeltitle = m.top.findNode("ChannelTitle")
+      channeltitle.text = "001 KUSA"
+      channelTitleXPos = 140 + seasontitle.boundingRect().width + 15
+      channeltitle.translation = [ channelTitleXPos, 60]
+
+      ratingImage = m.top.findNode("RatingImage")
+      ratingImageXPos =  channelTitleXPos + channeltitle.boundingRect().width + 20
+      ratingImage.translation = [ ratingImageXPos, 60 ]
+
+      ratingLabel = m.top.findNode("RatingLabel")
+      ratingLabel.text = currentVideo.content.rating
+      ratingLabelXPos =  ratingImageXPos + ratingImage.boundingRect().width + 5
+      ratingLabel.translation = [ ratingLabelXPos, 60 ]
+
+      starRatingImage = m.top.findNode("StarRatingImage")
+      starRatingImageXPos =  ratingLabelXPos + ratingLabel.boundingRect().width + 10
+      starRatingImage.translation = [ starRatingImageXPos, 60 ]
+
+      starRatingLabel = m.top.findNode("StarRatingLabel")
+      starRatingLabel.text = currentVideo.content.starrating
+      starRatingLabelXPos =  starRatingImageXPos + starRatingImage.boundingRect().width + 5
+      starRatingLabel.translation = [ starRatingLabelXPos, 60 ]
+
+      userStarRatingImage = m.top.findNode("UserStarRatingImage")
+      userStarRatingImageXPos =  starRatingLabelXPos + starRatingLabel.boundingRect().width + 10
+      userStarRatingImage.translation = [ userStarRatingImageXPos, 60 ]
+
+      userStarRatingLabel = m.top.findNode("UserStarRatingLabel")
+      userStarRatingLabel.text = currentVideo.content.userstarrating
+      userStarRatingLabelXPos =  userStarRatingImageXPos + userStarRatingImage.boundingRect().width + 5
+      userStarRatingLabel.translation = [ userStarRatingLabelXPos, 60 ]
+
+      description = m.top.findNode("Description")
+      description.text = currentVideo.content.description
+
+    end sub
+
+    ]]>
+
+  </script>
+
+  <children>
+
+    <Poster
+      id = "infoRectangle"
+      translation = "[ 0, 0 ]"
+      height = "300"
+      width = "1280"
+      uri = "pkg:/images/VODCutUps/blackBG-opacity90.png" />
+
+    <Label
+      id = "Title"
+      translation = "[ 100, 20 ]"
+      font = "font:LargeBoldSystemFont" />
+
+    <Poster
+      id = "infoRectangle"
+      translation = "[ 100, 60 ]"
+      uri = "pkg:/images/VODCutUps/New-icon.png" />
+
+    <Label
+      id = "SeasonTitle"
+      translation = "[ 140, 60 ]"
+      font = "font:SmallBoldSystemFont" />
+
+    <Label
+      id = "ChannelTitle"
+      font = "font:SmallBoldSystemFont" />
+
+    <Poster
+      id = "RatingImage"
+      uri = "pkg:/images/VODCutUps/RatingLine-1.png" />
+
+    <Label
+      id = "RatingLabel"
+      font = "font:SmallBoldSystemFont" />
+
+    <Poster
+      id = "StarRatingImage"
+      uri = "pkg:/images/VODCutUps/RatingLine-2.png" />
+
+    <Label
+      id = "StarRatingLabel"
+      font = "font:SmallBoldSystemFont" />
+
+    <Poster
+      id = "UserStarRatingImage"
+      uri = "pkg:/images/VODCutUps/RatingLine-3.png" />
+
+    <Label
+      id = "UserStarRatingLabel"
+      font = "font:SmallBoldSystemFont" />
+
+    <Label
+      id = "Description"
+      translation = "[ 100, 90 ]"
+      font = "font:SmallestSystemFont" />
+
+
+    <Button
+      id = "Menu"
+      iconUri = "pkg:/images/VODCutUps/Menu.png"
+      focusedIconUri = "pkg:/images/VODCutUps/Menu.png"
+      maxWidth = "10"
+      translation = "[ 150,200]" />
+
+    <Button
+      id = "Stop"
+      text = ""
+      maxWidth = "10"
+      iconUri = "pkg:/images/VODCutUps/stop-default.png"
+      focusedIconUri = "pkg:/images/VODCutUps/Stop-Hover.png"
+      translation = "[ 300,200]" />
+
+  </children>
+
+</component>
